@@ -4,6 +4,7 @@ import { CommentList } from "./CommentList";
 import axios from 'axios';
 
 
+
 const Article = () => {
     const { article_id } = useParams();
    const [article, setArticle] = useState({});
@@ -11,7 +12,7 @@ const Article = () => {
  
   
     useEffect(() => {
-      console.log('article_id: ', article_id);
+     
       fetch(`https://dimitrina-news.onrender.com/api/articles/${article_id}`)
       .then((res) => res.json())
       .then((data) => {
@@ -41,12 +42,13 @@ const Article = () => {
             <p>Author: {article.author}</p>
             <p>Data: {article.created_at} </p>
             <p>Votes: {article.votes}</p>
-            <button onClick={()=>handleVotes(1)}>Vote +</button>
-            <button onClick={()=>handleVotes(-1)}>Vote -</button>
+            <button  onClick={()=>handleVotes(1)}>Vote +</button>
+            <button  onClick={()=>handleVotes(-1)}>Vote -</button>
             <nav className="home-page-link">
             <Link to="/">Home</Link>
             </nav>
             <CommentList article_id={article_id} />
+           
           </>
         )}
       </div>
