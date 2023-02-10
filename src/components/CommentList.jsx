@@ -8,6 +8,7 @@ export const CommentList = ({article_id}) => {
     const [comments, setComments] = useState([]);
     const [comment,setComment] = useState()
     const [loading,setLoading] = useState(false);
+    const [error, setError] = useState(null);
     const {loggedInUser} = useContext(UserContext)
 
     useEffect(() => {
@@ -28,10 +29,15 @@ axios.post(`https://dimitrina-news.onrender.com/api/articles/${article_id}/comme
   setComments([postedComment,...comments])
   setComment("");
   setLoading(false);
-}).catch((error)=>{
+  setError(false)
+})
+.catch((error)=>{
   console.error(error)
   setLoading(false)
+  setError(true);
 })
+
+
 
 }else{
 console.log("Please give some text in comment")
@@ -43,11 +49,13 @@ setComment(e.target.value);
 
 return (
 <section>
+
 <h3 className="text">Add comment</h3>
 <textarea  
 value={comment} 
 onChange={onChangeHandler}/>
 <button onClick={onClickHandler} disabled={loading}>{loading ===false?"Submit":"Loading.."}</button>
+{error && <p>Failed to post comment. Please try again later.</p>}
 <h2>Comments:</h2>
       {comments.map(({comment_id,body,author,created_at}) => (
         <div className="comment" key={comment_id}>
