@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import { CommentList } from "./CommentList";
+import axios from 'axios';
+
 
 
 const Article = () => {
@@ -10,7 +12,7 @@ const Article = () => {
  
   
     useEffect(() => {
-      console.log('article_id: ', article_id);
+     
       fetch(`https://dimitrina-news.onrender.com/api/articles/${article_id}`)
       .then((res) => res.json())
       .then((data) => {
@@ -19,7 +21,15 @@ const Article = () => {
       })
       .catch(error => console.error(error));
   }, [article_id]);
-     
+
+    const handleVotes=(vote)=>{ 
+      axios.patch(`https://dimitrina-news.onrender.com/api/articles/${article_id}`,{
+        inc_votes:vote
+      }).then((response)=>{
+        setArticle(response.data.article)
+      }).catch(error=>console.error(error))
+    }
+
     return (
       <div className="article">
         {loading ? (
@@ -32,10 +42,13 @@ const Article = () => {
             <p>Author: {article.author}</p>
             <p>Data: {article.created_at} </p>
             <p>Votes: {article.votes}</p>
+            <button  onClick={()=>handleVotes(1)}>Vote +</button>
+            <button  onClick={()=>handleVotes(-1)}>Vote -</button>
             <nav className="home-page-link">
             <Link to="/">Home</Link>
             </nav>
             <CommentList article_id={article_id} />
+           
           </>
         )}
       </div>
