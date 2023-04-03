@@ -30,6 +30,8 @@
   background: #23b7df;
   padding: 3%;
   font-family: sans-serif;
+  display: flex;
+  justify-content: space-between;
 }
 
 .article {
@@ -72,3 +74,17 @@
   font-weight: bold;
   font-size: larger;
 }
+
+.user p {
+  font-size: 35px;
+}
+
+.profile-link {
+  margin-left: auto;
+}
+
+button {
+  background-color: rgb(98, 98, 202);
+  color: white;
+}
+
