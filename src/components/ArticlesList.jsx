@@ -1,5 +1,6 @@
 import {useState, useEffect} from 'react'
-import { ArticleCard } from './ArticalCard'
+import { ArticleCard } from './ArticleCard'
+
 
 
 
@@ -34,7 +35,9 @@ return (
       ))
     )}
   </div>
+  
 );
+
 
 
   };

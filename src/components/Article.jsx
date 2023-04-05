@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import { CommentList } from "./CommentList";
 import axios from 'axios';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHome } from '@fortawesome/free-solid-svg-icons';
 
 
 
@@ -45,7 +47,9 @@ const Article = () => {
             <button  onClick={()=>handleVotes(1)}>Vote +</button>
             <button  onClick={()=>handleVotes(-1)}>Vote -</button>
             <nav className="home-page-link">
-            <Link to="/">Home</Link>
+            <Link to="/">
+          <FontAwesomeIcon icon={faHome} />
+        </Link>
             </nav>
             <CommentList article_id={article_id} />
            

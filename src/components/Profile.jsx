@@ -2,6 +2,8 @@
 import { useContext } from "react"
 import { UserContext } from "../context/UserContext"
 import { Link } from "react-router-dom"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHome } from '@fortawesome/free-solid-svg-icons';
 
 const Profile=()=>{
 
@@ -12,7 +14,9 @@ const Profile=()=>{
         <p>{loggedInUser.username}</p>
         <p>{loggedInUser.name}</p>
         <nav className="home-page-link">
-            <Link to="/">Home</Link>
+        <Link to="/">
+          <FontAwesomeIcon icon={faHome} />
+        </Link>
             </nav>
     </div>
     )
