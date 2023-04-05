@@ -1,3 +1,9 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 
 .article-list {
   display: flex;
@@ -24,15 +30,6 @@
   text-align: center;
 }
 
-.header {
-  text-align: center;
-  font-size: 36px;
-  background: #23b7df;
-  padding: 3%;
-  font-family: sans-serif;
-  display: flex;
-  justify-content: space-between;
-}
 
 .article {
   font-family: Arial, sans-serif;
@@ -69,8 +66,8 @@
 
 .home-page-link {
   position: absolute;
-  top: 0;
-  left: 0;
+  top: 10px;
+  right: 10px;
   font-weight: bold;
   font-size: larger;
 }
@@ -79,12 +76,81 @@
   font-size: 35px;
 }
 
-.profile-link {
-  margin-left: auto;
-}
 
 button {
   background-color: rgb(98, 98, 202);
   color: white;
 }
 
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 20px;
+  background-color:#6eb3e5; 
+}
+
+.header-title {
+  margin: 0;
+  margin-inline-start: 3mm;
+  margin-block: 3mm;
+ 
+}
+
+.category-links {
+  display: flex;
+  justify-content: center;
+}
+
+.category-links a {
+  margin: 0 10px;
+}
+
+.profile-link {
+  text-align: right;
+  margin-inline-end: 5mm;
+  font-size: larger;
+ 
+}
+
+.profile {
+  color: black;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.topics-link {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.topic-link {
+  color: black;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.container-coding {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.container-cooking {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.container-football {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.home-page-link {
+  font-size: 26px;
+}
