@@ -30,4 +30,4 @@ https://github.com/DimitrinaT/nc-news.git
 
 ## Usage
 
-To use NC News, you can simply visit the deployed website here.
+To use NC News, you can simply visit the deployed website https://dp-nc-news.netlify.app
